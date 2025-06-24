@@ -85,9 +85,30 @@ def q_8(name_file_csv):
     Occupation = "Speech writer"
     City = "Netanya"
     new_row = [GivenName,Gender,Title,Occupation,City]
-    with open(name_file_csv,"a") as f:
+    with open(name_file_csv,"a",newline="") as f:
         writer = csv.writer(f)
         writer.writerow(new_row)
+
+def q_9(name_file_csv):
+    dict_data = {}
+    with open(name_file_csv,"r") as f:
+        data = csv.DictReader(f)
+        for person in data:
+            if person["City"] in dict_data:
+                if person["Title"] in dict_data[person["City"]]:
+                    dict_data[person["City"]][person["Title"]] += 1
+                else:
+                    dict_data[person["City"]][person["Title"]] = 1
+            else:
+                dict_data[person["City"]] = {person["Title"]: 1}
+    with open("city_summary.csv","w",newline="") as f:
+        fieldnames = ["City", "Title", "Count"]
+        writer = csv.DictWriter(f, fieldnames= fieldnames)
+        writer.writeheader()
+        for name,dict in dict_data.items():
+            for key,value in dict.items():
+                writer.writerow({"City":name,"Title":key,"Count":value})
+
 
 
 name_file = "my_text.txt"
@@ -98,3 +119,4 @@ name_file_csv = "sample_names.csv"
 # q_5(name_file)
 # q_7(name_file_csv)
 # q_8(name_file_csv)
+q_9(name_file_csv)
