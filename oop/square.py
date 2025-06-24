@@ -6,7 +6,7 @@ class Square(Rectangle):
         super().__init__(length, length)
 
     def __str__(self):
-        return f"Square with side {self.width}"
+        return f"the with of square is {self.width}"
 
     def __repr__(self):
-        return f"Square({self.width})"
+        return f"square({self.width})"

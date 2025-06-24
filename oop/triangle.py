@@ -5,6 +5,9 @@ class Triangle(Rectangle):
     def get_area(self):
         return (self.length * self.width) / 2
 
+    def get_perimeter(self):
+        return (self.width **2 + self.length **)
+
     def __str__(self):
         return f"the length of triangle is {self.length}, the width of triangle is {self.width}"
 
