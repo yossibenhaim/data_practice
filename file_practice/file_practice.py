@@ -1,5 +1,4 @@
 import  csv
-from os import write
 
 
 def q_2(name_file):
@@ -66,7 +65,7 @@ def q_5(name_file):
     with open(name_file,"r") as file:
         data = file.readlines()
     data = [line[:-1]  + f" ({(len(line.split()))} word)\n"  for line in data]
-    with open("summary.txt","w") as file:
+    with open("summary.txt", "w") as file:
         file.writelines(data)
 
 def q_7(name_file_csv):
@@ -101,7 +100,7 @@ def q_9(name_file_csv):
                     dict_data[person["City"]][person["Title"]] = 1
             else:
                 dict_data[person["City"]] = {person["Title"]: 1}
-    with open("city_summary.csv","w",newline="") as f:
+    with open("city_summary.csv", "w", newline="") as f:
         fieldnames = ["City", "Title", "Count"]
         writer = csv.DictWriter(f, fieldnames= fieldnames)
         writer.writeheader()
