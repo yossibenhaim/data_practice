@@ -57,7 +57,16 @@ def q_4(name_file):
     print(f"the count of char is: {count_char}")
     print(f"the char of show Most is: {big_key}, is show {big_value}")
 
+def q_5(name_file):
+    with open(name_file,"r") as file:
+        data = file.readlines()
+    data = [line[:-1]  + f" ({(len(line.split()))} word)\n"  for line in data]
+    with open("summary.txt","w") as file:
+        file.writelines(data)
+
+
 name_file = "my_text.txt"
 # q_2(name_file)
 # q_3(name_file)
-q_4(name_file)
+# q_4(name_file)
+q_5(name_file)
