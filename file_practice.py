@@ -1,3 +1,7 @@
+import  csv
+from os import write
+
+
 def q_2(name_file):
     text_file = ["Hello world\n",
                  "It’s the first exercise in I/O)\n",
@@ -8,6 +12,7 @@ def q_2(name_file):
                  "And i am all 4 it\n"]
     with open(name_file,"w") as file:
         file.writelines(text_file)
+
 def q_3(name_file):
     with open(name_file,"r") as f:
         data = f.readlines()
@@ -64,9 +69,54 @@ def q_5(name_file):
     with open("summary.txt","w") as file:
         file.writelines(data)
 
+def q_7(name_file_csv):
+    with open(name_file_csv,"r") as f:
+        data = csv.DictReader(f)
+        for person in data:
+            if person["Gender"] == "male":
+                print(f"קוראים לי:{person["GivenName"]}. אני גר ב: {person["City"]}. ועובד ב:{person["Occupation"]}")
+            else:
+                print(f"קוראים לי:{person["GivenName"]}. אני גרה ב: {person["City"]}. ועובדת ב:{person["Occupation"]}")
+
+def q_8(name_file_csv):
+    GivenName = "yossi"
+    Gender = "male"
+    Title = "Mr"
+    Occupation = "Speech writer"
+    City = "Netanya"
+    new_row = [GivenName,Gender,Title,Occupation,City]
+    with open(name_file_csv,"a",newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(new_row)
+
+def q_9(name_file_csv):
+    dict_data = {}
+    with open(name_file_csv,"r") as f:
+        data = csv.DictReader(f)
+        for person in data:
+            if person["City"] in dict_data:
+                if person["Title"] in dict_data[person["City"]]:
+                    dict_data[person["City"]][person["Title"]] += 1
+                else:
+                    dict_data[person["City"]][person["Title"]] = 1
+            else:
+                dict_data[person["City"]] = {person["Title"]: 1}
+    with open("city_summary.csv","w",newline="") as f:
+        fieldnames = ["City", "Title", "Count"]
+        writer = csv.DictWriter(f, fieldnames= fieldnames)
+        writer.writeheader()
+        for name,dict in dict_data.items():
+            for key,value in dict.items():
+                writer.writerow({"City":name,"Title":key,"Count":value})
+
+
 
 name_file = "my_text.txt"
+name_file_csv = "sample_names.csv"
 # q_2(name_file)
 # q_3(name_file)
 # q_4(name_file)
-q_5(name_file)
+# q_5(name_file)
+# q_7(name_file_csv)
+# q_8(name_file_csv)
+q_9(name_file_csv)
