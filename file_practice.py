@@ -1,4 +1,7 @@
 import  csv
+from os import write
+
+
 def q_2(name_file):
     text_file = ["Hello world\n",
                  "It’s the first exercise in I/O)\n",
@@ -66,11 +69,32 @@ def q_5(name_file):
     with open("summary.txt","w") as file:
         file.writelines(data)
 
-def q_6(name_file_csv):
-    pass
+def q_7(name_file_csv):
+    with open(name_file_csv,"r") as f:
+        data = csv.DictReader(f)
+        for person in data:
+            if person["Gender"] == "male":
+                print(f"קוראים לי:{person["GivenName"]}. אני גר ב: {person["City"]}. ועובד ב:{person["Occupation"]}")
+            else:
+                print(f"קוראים לי:{person["GivenName"]}. אני גרה ב: {person["City"]}. ועובדת ב:{person["Occupation"]}")
+
+def q_8(name_file_csv):
+    GivenName = "yossi"
+    Gender = "male"
+    Title = "Mr"
+    Occupation = "Speech writer"
+    City = "Netanya"
+    new_row = [GivenName,Gender,Title,Occupation,City]
+    with open(name_file_csv,"a") as f:
+        writer = csv.writer(f)
+        writer.writerow(new_row)
+
 
 name_file = "my_text.txt"
+name_file_csv = "sample_names.csv"
 # q_2(name_file)
 # q_3(name_file)
 # q_4(name_file)
-q_5(name_file)
+# q_5(name_file)
+# q_7(name_file_csv)
+# q_8(name_file_csv)
