@@ -1,3 +1,4 @@
+import  csv
 def q_2(name_file):
     text_file = ["Hello world\n",
                  "It’s the first exercise in I/O)\n",
@@ -8,6 +9,7 @@ def q_2(name_file):
                  "And i am all 4 it\n"]
     with open(name_file,"w") as file:
         file.writelines(text_file)
+
 def q_3(name_file):
     with open(name_file,"r") as f:
         data = f.readlines()
@@ -64,6 +66,8 @@ def q_5(name_file):
     with open("summary.txt","w") as file:
         file.writelines(data)
 
+def q_6(name_file_csv):
+    pass
 
 name_file = "my_text.txt"
 # q_2(name_file)
