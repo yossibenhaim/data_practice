@@ -1,0 +1,7 @@
+Hello world (2 word)
+It’s the first exercise in I/O) (6 word)
+That mean it is number 1 (6 word)
+Not 2 (2 word)
+Not three (2 word)
+It is exciting (3 word)
+And i am all 4 it (6 word)
