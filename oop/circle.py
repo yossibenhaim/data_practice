@@ -17,5 +17,10 @@ class Circle(Shape):
     def __str__(self):
         return  f"the radius of circle is {self.radius}"
     def __repr__(self):
-        return  f"circle({self.radius})"
+        return  f"Circle({self.radius})"
 
+    def __add__(self,other):
+        if not isinstance(other,Circle):
+            raise TypeError("error!")
+        new_radius = self.radius + other.radius
+        return  Circle(new_radius)
