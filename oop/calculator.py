@@ -21,3 +21,8 @@ class Shape:
     @abstractmethod
     def __add__(self, other):
         pass
+
+    def __eq__(self, other):
+        if not isinstance(other, Shape):
+            raise TypeError("Error:")
+        return self.get_area() == other.get_area()
