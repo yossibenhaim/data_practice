@@ -3,13 +3,13 @@ from rectangle import Rectangle
 class Triangle(Rectangle):
 
     def get_area(self):
-        return (self.length * self.width) / 2
+        return (self.side_length * self.side_width) / 2
 
     def get_perimeter(self):
-        return (self.width **2 + self.length **2) ** .5 + self.length + self.width
+        return (self.side_length **2 + self.side_width **2) ** .5 + self.side_length + self.side_width
 
     def __str__(self):
-        return f"the length of triangle is {self.length}, the width of triangle is {self.width}"
+        return f"the length of triangle is {self.side_length}, the width of triangle is {self.side_width}"
 
     def __repr__(self):
-        return f"triangle ({self.width},{self.length})"
+        return f"triangle ({self.side_length},{self.side_width})"
