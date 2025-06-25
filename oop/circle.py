@@ -17,5 +17,5 @@ class Circle(Shape):
     def __str__(self):
         return  f"the radius of circle is {self.radius}"
     def __repr__(self):
-        return  f"circle({self.radius})"
+        return  f"Circle({self.radius})"
 

@@ -12,4 +12,4 @@ class Triangle(Rectangle):
         return f"the length of triangle is {self.side_length}, the width of triangle is {self.side_width}"
 
     def __repr__(self):
-        return f"triangle ({self.side_length},{self.side_width})"
+        return f"Triangle({self.side_length},{self.side_width})"

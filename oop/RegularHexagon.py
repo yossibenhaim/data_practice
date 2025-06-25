@@ -13,4 +13,4 @@ class RegularHexagon(Square):
         return f"the side length of regular hexagon is {self.side_length}"
 
     def __repr__(self):
-        return f"regular hexagon ({self.side_length})"
+        return f"RegularHexagon({self.side_length})"
