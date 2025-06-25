@@ -1,5 +1,5 @@
 import  csv
-
+import json
 
 def q_2(name_file):
     text_file = ["Hello world\n",
@@ -108,7 +108,26 @@ def q_9(name_file_csv):
             for key,value in dict.items():
                 writer.writerow({"City":name,"Title":key,"Count":value})
 
+def q_10(name_file_csv):
+    all_dict_data = []
+    with open(name_file_csv,"r") as f:
+        data = csv.DictReader(f)
+        for people in data:
+            all_dict_data.append(people)
+    with open("people.json","w") as f:
+        json.dump(all_dict_data,f,indent=4)
 
+def q_11():
+    dict_city = {}
+    with open("people.json" , "r") as file:
+        data = json.load(file)
+        for person in data:
+            if person["City"] in dict_city:
+                dict_city[person["City"]] += 1
+            else:
+                dict_city[person["City"]] = 1
+    for city in dict_city:
+        print(city, dict_city[city])
 
 name_file = "my_text.txt"
 name_file_csv = "sample_names.csv"
@@ -118,4 +137,6 @@ name_file_csv = "sample_names.csv"
 # q_5(name_file)
 # q_7(name_file_csv)
 # q_8(name_file_csv)
-q_9(name_file_csv)
+# q_9(name_file_csv)
+# q_10(name_file_csv)
+# q_11()
