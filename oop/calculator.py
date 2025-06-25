@@ -21,3 +21,7 @@ class Shape:
     @abstractmethod
     def __add__(self, other):
         pass
+
+    @abstractmethod
+    def __eq__(self, other):
+        pass
