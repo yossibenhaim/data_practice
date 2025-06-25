@@ -25,6 +25,7 @@ class Rectangle(Shape):
         new_side_length = self.side_length + other.side_length
         new_side_width = self.side_width + other.side_width
         return Rectangle(new_side_length,new_side_width)
+
 a = Rectangle(2,5)
 b = Rectangle(2,5)
 c = a + b

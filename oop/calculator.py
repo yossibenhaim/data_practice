@@ -17,3 +17,7 @@ class Shape:
     @abstractmethod
     def __repr__(self):
         pass
+
+    @abstractmethod
+    def __add__(self, other):
+        pass

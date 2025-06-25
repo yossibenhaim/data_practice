@@ -11,10 +11,10 @@ class Square(Rectangle):
     def __repr__(self):
         return f"Square({self.side_length})"
 
-    def __add__(self,rectangle):
-        if not isinstance(rectangle,Rectangle):
+    def __add__(self,other):
+        if not isinstance(other,Rectangle):
             raise TypeError("error!")
-        if rectangle.side_width != rectangle.side_length:
+        if other.side_width != other.side_length:
             raise TypeError("error!")
-        temp = Rectangle(self.side_length + rectangle.side_length,self.side_width + rectangle.side_width)
-        return  temp
+        new_length = self.side_length + other.side_length
+        return  Square(new_length)
